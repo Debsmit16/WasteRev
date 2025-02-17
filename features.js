@@ -1,4 +1,95 @@
 document.addEventListener('DOMContentLoaded', function() {
+    // Initialize Demo Slider
+    const demoSlider = {
+        currentSlide: 0,
+        slides: document.querySelectorAll('.demo-viewer img'),
+        dots: document.querySelectorAll('.demo-nav .dot'),
+        prevBtn: document.querySelector('.demo-controls .prev'),
+        nextBtn: document.querySelector('.demo-controls .next'),
+
+        init() {
+            this.addEventListeners();
+            this.showSlide(0);
+        },
+
+        addEventListeners() {
+            this.prevBtn?.addEventListener('click', () => this.prevSlide());
+            this.nextBtn?.addEventListener('click', () => this.nextSlide());
+            
+            this.dots.forEach((dot, index) => {
+                dot.addEventListener('click', () => this.showSlide(index));
+            });
+        },
+
+        showSlide(index) {
+            this.slides.forEach(slide => slide.classList.remove('active'));
+            this.dots.forEach(dot => dot.classList.remove('active'));
+            
+            this.slides[index].classList.add('active');
+            this.dots[index].classList.add('active');
+            this.currentSlide = index;
+        },
+
+        prevSlide() {
+            const index = (this.currentSlide - 1 + this.slides.length) % this.slides.length;
+            this.showSlide(index);
+        },
+
+        nextSlide() {
+            const index = (this.currentSlide + 1) % this.slides.length;
+            this.showSlide(index);
+        }
+    };
+
+    // Initialize Features Animation
+    const cards = document.querySelectorAll('.feature-card');
+    cards.forEach(card => {
+        card.addEventListener('mouseenter', () => {
+            card.style.transform = 'translateY(-10px)';
+        });
+        
+        card.addEventListener('mouseleave', () => {
+            card.style.transform = 'translateY(0)';
+        });
+    });
+
+    // Initialize Stat Counter Animation
+    const stats = document.querySelectorAll('.stat');
+    const observerOptions = {
+        threshold: 0.5
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                startCounting(entry.target);
+                observer.unobserve(entry.target);
+            }
+        });
+    }, observerOptions);
+
+    stats.forEach(stat => observer.observe(stat));
+
+    function startCounting(element) {
+        const target = parseInt(element.textContent);
+        let count = 0;
+        const duration = 2000;
+        const increment = target / (duration / 16);
+
+        const timer = setInterval(() => {
+            count += increment;
+            if (count >= target) {
+                element.textContent = target + (element.textContent.includes('%') ? '%' : '');
+                clearInterval(timer);
+            } else {
+                element.textContent = Math.floor(count) + (element.textContent.includes('%') ? '%' : '');
+            }
+        }, 16);
+    }
+
+    // Initialize Demo Slider
+    demoSlider.init();
+
     // Initialize animations with intersection observer
     const cards = document.querySelectorAll('.feature-card');
     

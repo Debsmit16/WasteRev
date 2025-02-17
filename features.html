@@ -13,192 +13,123 @@
     <header>
         <nav>
             <div class="logo">
-                <img src="logo.png" alt="WasteRev Logo" class="logo-img">
-                <span class="logo-text">WasteRev</span>
+                <a href="index.html">
+                    <img src="logo.png" alt="WasteRev Logo">
+                    <span>WasteRev</span>
+                </a>
             </div>
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="features.html" class="active">Features</a></li>
                 <li><a href="about.html">About Us</a></li>
-                <li><a href="#community">Community</a></li>
-                <li><a href="#resources">Resources</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
-            <div class="header-controls">
-                <button class="login-btn">Login</button>
-            </div>
+            <button class="login-btn">Login</button>
         </nav>
     </header>
 
-    <main class="features-page">
-        <section class="features-hero">
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
             <div class="hero-content">
-                <h1>Revolutionary Features</h1>
-                <p class="hero-subtitle">Transform Healthcare Waste Management</p>
-                <div class="hero-cards">
-                    <div class="hero-card">
-                        <i class="fas fa-microscope"></i>
-                        <span>Smart Analysis</span>
-                    </div>
-                    <div class="hero-card">
-                        <i class="fas fa-robot"></i>
-                        <span>AI Powered</span>
-                    </div>
-                    <div class="hero-card">
-                        <i class="fas fa-leaf"></i>
-                        <span>Eco-Friendly</span>
-                    </div>
-                </div>
+                <h1>Smart Healthcare Waste Management</h1>
+                <p>Revolutionizing medical waste handling with cutting-edge technology</p>
+                <a href="#demo" class="cta-btn">Get Started</a>
             </div>
-            <div class="hero-visual">
-                <div class="visual-container">
-                    <img src="https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?auto=format&fit=crop&w=1600&q=80" alt="Smart Healthcare Technology">
-                    <div class="particle-effect"></div>
+            <div class="hero-animation">
+                <!-- 3D animation or illustration here -->
+                <img src="https://cdn.pixabay.com/photo/2017/12/10/17/40/medicine-3010848_1280.png" alt="Healthcare Illustration">
+            </div>
+        </section>
+
+        <!-- Key Features Section -->
+        <section class="key-features">
+            <h2>Key Features</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <i class="fas fa-robot"></i>
+                    <h3>AI-Powered Sorting</h3>
+                    <p>Automatic waste classification using machine learning</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-chart-line"></i>
+                    <h3>Real-time Analytics</h3>
+                    <p>Live monitoring and data-driven insights</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>Safety Compliance</h3>
+                    <p>Automatic regulatory compliance checks</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-leaf"></i>
+                    <h3>Eco-Friendly</h3>
+                    <p>Sustainable waste management solutions</p>
                 </div>
             </div>
         </section>
 
-        <section class="feature-highlights">
-            <div class="highlight-card">
-                <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=1400&q=80" alt="Smart Waste Management">
-                <div class="highlight-content">
-                    <h2>Smart Tracking</h2>
-                    <p>Real-time waste monitoring with AI-powered analytics</p>
-                </div>
-            </div>
-            <div class="highlight-card">
-                <img src="https://images.unsplash.com/photo-1581093588401-fbb62a02f120?auto=format&fit=crop&w=1400&q=80" alt="Analytics Dashboard">
-                <div class="highlight-content">
-                    <h2>Advanced Analytics</h2>
-                    <p>Data-driven insights for better decision making</p>
-                </div>
-            </div>
-        </section>
-
-        <section class="feature-categories">
-            <div class="container">
-                <div class="category-tabs">
-                    <button class="tab-btn active" data-tab="monitoring">Waste Monitoring</button>
-                    <button class="tab-btn" data-tab="analytics">Analytics</button>
-                    <button class="tab-btn" data-tab="compliance">Compliance</button>
-                    <button class="tab-btn" data-tab="sustainability">Sustainability</button>
-                </div>
-
-                <div class="tab-content">
-                    <div class="tab-panel active" id="monitoring">
-                        <div class="feature-grid">
-                            <div class="feature-card">
-                                <div class="feature-icon">
-                                    <i class="fas fa-sensor"></i>
-                                </div>
-                                <div class="feature-content">
-                                    <h3>Smart Sensors</h3>
-                                    <p>Real-time monitoring of waste levels and types</p>
-                                    <ul class="feature-list">
-                                        <li>Automated waste classification</li>
-                                        <li>Fill-level monitoring</li>
-                                        <li>Temperature tracking</li>
-                                    </ul>
-                                    <a href="#" class="learn-more">Learn More <i class="fas fa-arrow-right"></i></a>
-                                </div>
-                                <div class="feature-visual">
-                                    <img src="https://cdn-icons-png.flaticon.com/512/1186/1186370.png" alt="Smart Sensor Icon">
-                                </div>
-                            </div>
-                            <!-- Add more feature cards -->
+        <!-- Interactive Demo Section -->
+        <section class="demo" id="demo">
+            <h2>See It In Action</h2>
+            <div class="demo-container">
+                <div class="demo-viewer">
+                    <img src="https://via.placeholder.com/800x600" alt="Demo" class="active">
+                    <div class="demo-controls">
+                        <button class="prev"><i class="fas fa-chevron-left"></i></button>
+                        <div class="demo-nav">
+                            <span class="dot active"></span>
+                            <span class="dot"></span>
+                            <span class="dot"></span>
                         </div>
-                    </div>
-                    <!-- Add more tab panels -->
-                </div>
-            </div>
-        </section>
-
-        <section class="interactive-demo">
-            <div class="container">
-                <h2>Experience Our Platform</h2>
-                <div class="demo-container">
-                    <div class="demo-screen">
-                        <div class="screen-content">
-                            <!-- Interactive demo content -->
-                            <div class="demo-step active" data-step="1">
-                                <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1400&q=80" alt="Step 1: Waste Collection">
-                            </div>
-                            <div class="demo-step" data-step="2">
-                                <img src="https://images.unsplash.com/photo-1581091226827-a6a2a5aee159?auto=format&fit=crop&w=1400&q=80" alt="Step 2: Smart Segregation">
-                            </div>
-                            <div class="demo-step" data-step="3">
-                                <img src="https://images.unsplash.com/photo-1581091226825-c6a2a5aee157?auto=format&fit=crop&w=1400&q=80" alt="Step 3: Analytics">
-                            </div>
-                        </div>
-                        <div class="demo-controls">
-                            <button class="demo-nav" data-dir="prev"><i class="fas fa-chevron-left"></i></button>
-                            <div class="demo-dots">
-                                <span class="dot active"></span>
-                                <span class="dot"></span>
-                                <span class="dot"></span>
-                            </div>
-                            <button class="demo-nav" data-dir="next"><i class="fas fa-chevron-right"></i></button>
-                        </div>
+                        <button class="next"><i class="fas fa-chevron-right"></i></button>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section class="benefits-section">
-            <div class="container">
-                <h2>Key Benefits</h2>
-                <div class="benefits-grid">
-                    <div class="benefit-card">
-                        <div class="benefit-icon">
-                            <i class="fas fa-chart-pie"></i>
-                        </div>
-                        <h3>Cost Reduction</h3>
-                        <p>Reduce waste management costs by up to 40%</p>
-                    </div>
-                    <!-- Add animated stat cards -->
+        <!-- Benefits Section -->
+        <section class="benefits">
+            <h2>Why Choose Us</h2>
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="stat">40%</div>
+                    <h3>Cost Reduction</h3>
+                    <p>Lower your operational costs</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="stat">99.9%</div>
+                    <h3>Accuracy</h3>
+                    <p>In waste classification</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="stat">24/7</div>
+                    <h3>Monitoring</h3>
+                    <p>Continuous system oversight</p>
                 </div>
             </div>
         </section>
 
-        <section class="comparison-section">
-            <div class="container">
-                <h2>Why Choose Our Solution</h2>
-                <div class="comparison-slider">
-                    <div class="slider-handle"></div>
-                    <div class="comparison-side traditional">
-                        <img src="https://images.unsplash.com/photo-1572864226245-f45d1250a2e2?auto=format&fit=crop&w=1400&q=80" alt="Traditional Method">
-                        <h3>Traditional Method</h3>
-                    </div>
-                    <div class="comparison-side modern">
-                        <img src="https://images.unsplash.com/photo-1581092162384-8987c1d64926?auto=format&fit=crop&w=1400&q=80" alt="Modern Solution">
-                        <h3>WasteRev Solution</h3>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="cta-section">
-            <div class="container">
-                <h2>Ready to Transform Your Waste Management?</h2>
-                <div class="cta-buttons">
-                    <a href="#demo" class="btn-primary">Request Demo</a>
-                    <a href="#pricing" class="btn-secondary">View Pricing</a>
-                </div>
+        <!-- Call to Action -->
+        <section class="cta">
+            <h2>Ready to Transform Your Waste Management?</h2>
+            <p>Join hundreds of healthcare facilities already using our solution</p>
+            <div class="cta-buttons">
+                <a href="#contact" class="primary-btn">Request Demo</a>
+                <a href="#pricing" class="secondary-btn">View Pricing</a>
             </div>
         </section>
     </main>
 
-    <!-- Same Footer as other pages -->
     <footer>
-        <!-- ...existing footer code... -->
+        <!-- Add your footer content -->
     </footer>
 
-    <!-- Same Login Modal as other pages -->
-    <div class="login-modal" id="loginModal">
-        <!-- ...existing login modal code... -->
+    <!-- Login Modal -->
+    <div class="modal" id="loginModal">
+        <!-- Add login modal content -->
     </div>
 
-    <script src="script.js"></script>
     <script src="features.js"></script>
 </body>
 </html>
