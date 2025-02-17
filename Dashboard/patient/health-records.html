@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Health Records - WasteRev</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="health-records/health-records.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Copy sidebar from dashboard.html -->
+        <aside class="sidebar">
+            <!-- ... existing sidebar code ... -->
+        </aside>
+
+        <main class="main-content">
+            <header class="top-nav">
+                <div class="nav-left">
+                    <button class="menu-toggle">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    <h1>Health Records</h1>
+                </div>
+                <div class="nav-right">
+                    <div class="user-profile">
+                        <img src="https://i.pravatar.cc/150?img=12" alt="Patient Avatar">
+                        <span>John Doe</span>
+                    </div>
+                </div>
+            </header>
+
+            <div class="return-nav">
+                <a href="dashboard.html" class="return-button" id="returnToDashboard">
+                    <div class="return-icon">
+                        <i class="fas fa-arrow-left"></i>
+                    </div>
+                    <div class="return-text">
+                        <span class="return-label">Return to Dashboard</span>
+                        <span class="return-desc">Back to main patient dashboard</span>
+                    </div>
+                </a>
+            </div>
+
+            <div class="health-records-content">
+                <!-- Stats Overview -->
+                <div class="records-stats">
+                    <div class="stat-card">
+                        <i class="fas fa-file-medical"></i>
+                        <div class="stat-info">
+                            <h3>Total Records</h3>
+                            <span class="stat-value">0</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-calendar-alt"></i>
+                        <div class="stat-info">
+                            <h3>Last Upload</h3>
+                            <span class="stat-value">Never</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-folder"></i>
+                        <div class="stat-info">
+                            <h3>Categories</h3>
+                            <span class="stat-value">0</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-clock"></i>
+                        <div class="stat-info">
+                            <h3>Recent Activity</h3>
+                            <span class="stat-value">Last 24h</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-share-alt"></i>
+                        <div class="stat-info">
+                            <h3>Shared Records</h3>
+                            <span class="stat-value">0</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quick Actions Section -->
+                <div class="quick-actions">
+                    <h3>Quick Actions</h3>
+                    <div class="action-buttons">
+                        <button class="action-btn scan-document">
+                            <i class="fas fa-camera"></i>
+                            Scan Document
+                        </button>
+                        <button class="action-btn import-records">
+                            <i class="fas fa-file-import"></i>
+                            Import Records
+                        </button>
+                        <button class="action-btn generate-summary">
+                            <i class="fas fa-chart-bar"></i>
+                            Generate Summary
+                        </button>
+                        <button class="action-btn request-records">
+                            <i class="fas fa-hospital"></i>
+                            Request Hospital Records
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Timeline View Toggle -->
+                <div class="view-toggle">
+                    <button class="toggle-btn active" data-view="grid">
+                        <i class="fas fa-th"></i> Grid View
+                    </button>
+                    <button class="toggle-btn" data-view="timeline">
+                        <i class="fas fa-stream"></i> Timeline View
+                    </button>
+                </div>
+
+                <!-- Records Management -->
+                <div class="records-management">
+                    <div class="management-header">
+                        <div class="search-records">
+                            <i class="fas fa-search"></i>
+                            <input type="text" id="searchRecords" placeholder="Search records...">
+                        </div>
+                        <div class="management-actions">
+                            <div class="category-filter">
+                                <select id="categoryFilter">
+                                    <option value="all">All Records</option>
+                                    <option value="prescriptions">Prescriptions</option>
+                                    <option value="lab-reports">Lab Reports</option>
+                                    <option value="scans">Scans & X-Rays</option>
+                                    <option value="discharge">Discharge Summaries</option>
+                                    <option value="others">Other Documents</option>
+                                </select>
+                            </div>
+                            <button id="uploadRecord" class="upload-btn">
+                                <i class="fas fa-upload"></i>
+                                Upload Record
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="records-grid">
+                        <!-- Records will be dynamically added here -->
+                    </div>
+
+                    <!-- Pagination -->
+                    <div class="pagination">
+                        <button class="prev-page"><i class="fas fa-chevron-left"></i></button>
+                        <div class="page-numbers">
+                            <button class="active">1</button>
+                            <button>2</button>
+                            <button>3</button>
+                        </div>
+                        <button class="next-page"><i class="fas fa-chevron-right"></i></button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Upload Modal will be dynamically added by JavaScript -->
+    <script src="dashboard.js"></script>
+    <script src="health-records/health-records.js"></script>
+
+    <!-- Add this before closing body tag -->
+    <div class="modal" id="recordViewerModal">
+        <div class="modal-content large">
+            <div class="modal-header">
+                <h2><i class="fas fa-file-medical"></i> <span class="record-title">Record Title</span></h2>
+                <span class="close-modal">&times;</span>
+            </div>
+            <div class="record-viewer">
+                <div class="record-metadata">
+                    <div class="metadata-item">
+                        <i class="fas fa-calendar"></i>
+                        <span class="record-date">Date</span>
+                    </div>
+                    <div class="metadata-item">
+                        <i class="fas fa-folder"></i>
+                        <span class="record-category">Category</span>
+                    </div>
+                    <div class="metadata-item">
+                        <i class="fas fa-hospital"></i>
+                        <span class="record-provider">Healthcare Provider</span>
+                    </div>
+                </div>
+                <div class="record-preview">
+                    <!-- File preview will be shown here -->
+                </div>
+                <div class="record-notes">
+                    <h3>Notes</h3>
+                    <p class="notes-content">No notes available</p>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-primary download-btn">
+                    <i class="fas fa-download"></i> Download
+                </button>
+                <button class="btn-secondary share-btn">
+                    <i class="fas fa-share"></i> Share
+                </button>
+                <button class="btn-warning edit-btn">
+                    <i class="fas fa-edit"></i> Edit
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Share Record Modal -->
+    <div class="modal" id="shareRecordModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Share Record</h2>
+                <span class="close-modal">&times;</span>
+            </div>
+            <div class="share-options">
+                <div class="share-with-doctor">
+                    <h3>Share with Healthcare Provider</h3>
+                    <select id="doctorList">
+                        <option value="">Select a healthcare provider</option>
+                    </select>
+                </div>
+                <div class="share-via-email">
+                    <h3>Share via Email</h3>
+                    <input type="email" placeholder="Enter recipient's email">
+                </div>
+                <div class="share-permissions">
+                    <h3>Permissions</h3>
+                    <label>
+                        <input type="checkbox" checked> Allow Download
+                    </label>
+                    <label>
+                        <input type="checkbox" checked> Allow Sharing
+                    </label>
+                    <label>
+                        <input type="checkbox"> Set Expiry Date
+                    </label>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-primary share-confirm-btn">Share</button>
+                <button class="btn-secondary">Cancel</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

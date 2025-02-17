@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - WasteRev</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="admin-dashboard.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <a href="../../index.html" class="logo">
+                    <img src="../../logo.png" alt="WasteRev Logo">
+                    <span>WasteRev</span>
+                </a>
+            </div>
+            <nav class="sidebar-nav">
+                <ul>
+                    <li class="active">
+                        <a href="#dashboard"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+                    </li>
+                    <li>
+                        <a href="#users"><i class="fas fa-users"></i> User Management</a>
+                    </li>
+                    <li>
+                        <a href="#doctors"><i class="fas fa-user-md"></i> Doctors</a>
+                    </li>
+                    <li>
+                        <a href="#patients"><i class="fas fa-user-injured"></i> Patients</a>
+                    </li>
+                    <li>
+                        <a href="#reports"><i class="fas fa-chart-bar"></i> Reports</a>
+                    </li>
+                    <li>
+                        <a href="#logs"><i class="fas fa-history"></i> System Logs</a>
+                    </li>
+                    <li>
+                        <a href="#settings"><i class="fas fa-cog"></i> System Settings</a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="sidebar-footer">
+                <a href="#help"><i class="fas fa-question-circle"></i> Help Center</a>
+                <a href="login.html" class="logout-btn"><i class="fas fa-sign-out-alt"></i> Logout</a>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Top Navigation -->
+            <header class="top-nav">
+                <div class="nav-left">
+                    <button class="menu-toggle">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    <h1>System Administration</h1>
+                </div>
+                <div class="nav-right">
+                    <div class="search-bar">
+                        <i class="fas fa-search"></i>
+                        <input type="text" placeholder="Search...">
+                    </div>
+                    <div class="notifications">
+                        <i class="fas fa-bell"></i>
+                        <span class="notification-badge">7</span>
+                    </div>
+                    <div class="user-profile">
+                        <img src="https://i.pravatar.cc/150?img=3" alt="Admin Avatar">
+                        <span>System Admin</span>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Dashboard Content -->
+            <div class="dashboard-content">
+                <!-- System Overview -->
+                <section class="system-overview">
+                    <div class="card-grid">
+                        <div class="stat-card">
+                            <div class="card-icon users">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <div class="card-info">
+                                <h3>Total Users</h3>
+                                <p class="value">1,248</p>
+                                <span class="details">Active: 1,180</span>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="card-icon system">
+                                <i class="fas fa-server"></i>
+                            </div>
+                            <div class="card-info">
+                                <h3>System Status</h3>
+                                <p class="value">98.9%</p>
+                                <span class="details">Uptime</span>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="card-icon security">
+                                <i class="fas fa-shield-alt"></i>
+                            </div>
+                            <div class="card-info">
+                                <h3>Security Status</h3>
+                                <p class="value">Secure</p>
+                                <span class="details">Last scan: 2h ago</span>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="card-icon alerts">
+                                <i class="fas fa-exclamation-triangle"></i>
+                            </div>
+                            <div class="card-info">
+                                <h3>Active Alerts</h3>
+                                <p class="value">3</p>
+                                <span class="details">2 High Priority</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Activity Monitoring -->
+                <section class="monitoring-section">
+                    <div class="section-header">
+                        <h2>System Activity</h2>
+                        <div class="header-actions">
+                            <button class="btn-secondary">Export Log</button>
+                            <button class="btn-primary">View All</button>
+                        </div>
+                    </div>
+                    <div class="activity-list">
+                        <div class="activity-item">
+                            <div class="activity-icon warning">
+                                <i class="fas fa-exclamation-circle"></i>
+                            </div>
+                            <div class="activity-details">
+                                <h4>Failed Login Attempt</h4>
+                                <p>Multiple failed login attempts detected from IP: 192.168.1.105</p>
+                                <span class="timestamp">2 minutes ago</span>
+                            </div>
+                            <button class="btn-action">Investigate</button>
+                        </div>
+                        <!-- More activity items -->
+                    </div>
+                </section>
+
+                <!-- Analytics Section -->
+                <section class="analytics-section">
+                    <div class="chart-container">
+                        <h2>System Performance</h2>
+                        <canvas id="performanceChart"></canvas>
+                    </div>
+                    <div class="chart-container">
+                        <h2>User Activity</h2>
+                        <canvas id="activityChart"></canvas>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="admin-dashboard.js"></script>
+</body>
+</html>

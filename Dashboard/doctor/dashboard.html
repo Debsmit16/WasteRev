@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctor Dashboard - WasteRev</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <a href="../../index.html" class="logo">
+                    <img src="../../logo.png" alt="WasteRev Logo">
+                    <span>WasteRev</span>
+                </a>
+            </div>
+            <nav class="sidebar-nav">
+                <ul>
+                    <li class="active">
+                        <a href="#dashboard"><i class="fas fa-home"></i> Dashboard</a>
+                    </li>
+                    <li>
+                        <a href="#patients"><i class="fas fa-user-injured"></i> Patients</a>
+                    </li>
+                    <li>
+                        <a href="#appointments"><i class="fas fa-calendar-check"></i> Appointments</a>
+                    </li>
+                    <li>
+                        <a href="#prescriptions"><i class="fas fa-prescription"></i> Prescriptions</a>
+                    </li>
+                    <li>
+                        <a href="#messages"><i class="fas fa-envelope"></i> Messages</a>
+                    </li>
+                    <li>
+                        <a href="#analytics"><i class="fas fa-chart-line"></i> Analytics</a>
+                    </li>
+                    <li>
+                        <a href="#settings"><i class="fas fa-cog"></i> Settings</a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="sidebar-footer">
+                <a href="#help"><i class="fas fa-question-circle"></i> Help Center</a>
+                <a href="login.html" class="logout-btn"><i class="fas fa-sign-out-alt"></i> Logout</a>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Top Navigation -->
+            <header class="top-nav">
+                <div class="nav-left">
+                    <button class="menu-toggle">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    <h1>Doctor Dashboard</h1>
+                </div>
+                <div class="nav-right">
+                    <div class="search-bar">
+                        <i class="fas fa-search"></i>
+                        <input type="text" placeholder="Search patients...">
+                    </div>
+                    <div class="notifications">
+                        <i class="fas fa-bell"></i>
+                        <span class="notification-badge">5</span>
+                    </div>
+                    <div class="user-profile">
+                        <img src="https://i.pravatar.cc/150?img=8" alt="Doctor Avatar">
+                        <span>Dr. Sarah Johnson</span>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Dashboard Content -->
+            <div class="dashboard-content">
+                <!-- Overview Section -->
+                <section class="overview-section">
+                    <div class="card-grid">
+                        <div class="stat-card">
+                            <div class="card-icon patients">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <div class="card-info">
+                                <h3>Total Patients</h3>
+                                <p class="value">248</p>
+                                <span class="trend positive">
+                                    <i class="fas fa-arrow-up"></i> 12 this week
+                                </span>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="card-icon appointments">
+                                <i class="fas fa-calendar-check"></i>
+                            </div>
+                            <div class="card-info">
+                                <h3>Today's Appointments</h3>
+                                <p class="value">8</p>
+                                <span class="time-range">9:00 AM - 5:00 PM</span>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="card-icon critical">
+                                <i class="fas fa-heartbeat"></i>
+                            </div>
+                            <div class="card-info">
+                                <h3>Critical Cases</h3>
+                                <p class="value">3</p>
+                                <span class="trend negative">
+                                    <i class="fas fa-exclamation-triangle"></i> Needs attention
+                                </span>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="card-icon tasks">
+                                <i class="fas fa-tasks"></i>
+                            </div>
+                            <div class="card-info">
+                                <h3>Pending Reports</h3>
+                                <p class="value">5</p>
+                                <span class="deadline">Due today</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Patient Monitoring Section -->
+                <section class="monitoring-section">
+                    <div class="section-header">
+                        <h2>Critical Patients Monitoring</h2>
+                        <button class="view-all">View All Patients</button>
+                    </div>
+                    <div class="patient-grid">
+                        <div class="patient-card critical">
+                            <div class="patient-info">
+                                <img src="https://i.pravatar.cc/150?img=12" alt="Patient">
+                                <div class="info">
+                                    <h3>John Doe</h3>
+                                    <span class="patient-id">ID: P-1234</span>
+                                    <span class="condition">Respiratory Distress</span>
+                                </div>
+                            </div>
+                            <div class="vital-signs">
+                                <div class="vital">
+                                    <span class="label">Resp. Rate</span>
+                                    <span class="value critical">28 BPM</span>
+                                </div>
+                                <div class="vital">
+                                    <span class="label">O2 Sat</span>
+                                    <span class="value warning">92%</span>
+                                </div>
+                                <div class="vital">
+                                    <span class="label">Heart Rate</span>
+                                    <span class="value">98 BPM</span>
+                                </div>
+                            </div>
+                            <div class="actions">
+                                <button class="btn-primary">View Details</button>
+                                <button class="btn-secondary">Contact</button>
+                            </div>
+                        </div>
+                        <!-- More patient cards -->
+                    </div>
+                </section>
+
+                <!-- Appointment Schedule -->
+                <section class="schedule-section">
+                    <div class="section-header">
+                        <h2>Today's Schedule</h2>
+                        <div class="date-navigation">
+                            <button class="nav-btn"><i class="fas fa-chevron-left"></i></button>
+                            <span class="current-date">March 15, 2024</span>
+                            <button class="nav-btn"><i class="fas fa-chevron-right"></i></button>
+                        </div>
+                    </div>
+                    <div class="schedule-timeline">
+                        <!-- Timeline content -->
+                    </div>
+                </section>
+
+                <!-- Analytics Section -->
+                <section class="analytics-section">
+                    <div class="chart-container">
+                        <h2>Patient Statistics</h2>
+                        <canvas id="patientChart"></canvas>
+                    </div>
+                    <div class="chart-container">
+                        <h2>Treatment Success Rate</h2>
+                        <canvas id="treatmentChart"></canvas>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="dashboard.js"></script>
+</body>
+</html>

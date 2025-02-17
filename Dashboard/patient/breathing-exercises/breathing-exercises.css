@@ -1,0 +1,621 @@
+:root {
+    --primary-color: #FF69B4;
+    --accent-color: #FF1493;
+    --text-primary: #333333;
+    --text-secondary: #666666;
+    --background-light: #FFFFFF;
+    --background-dark: #F5F5F5;
+    --gradient-primary: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+}
+
+.breathing-interface {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    max-width: 800px;
+    background: white;
+    border-radius: 20px;
+    padding: 2rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+.back-navigation {
+    padding: 1rem 2rem;
+    margin-bottom: 1rem;
+}
+
+.back-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.8rem;
+    padding: 0.8rem 1.2rem;
+    background: white;
+    border-radius: 12px;
+    text-decoration: none;
+    color: var(--text-primary);
+    font-weight: 500;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.back-button:hover {
+    transform: translateX(-5px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.back-button i {
+    font-size: 1.2rem;
+    color: var(--primary-color);
+}
+
+.breathing-exercises-content {
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.exercise-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.exercise-card {
+    background: white;
+    border-radius: 15px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 105, 180, 0.1);
+}
+
+.exercise-benefits {
+    margin: 1rem 0;
+    padding: 1rem;
+    background: rgba(255, 105, 180, 0.05);
+    border-radius: 10px;
+}
+
+.exercise-benefits ul {
+    list-style: none;
+    padding: 0;
+}
+
+.exercise-benefits li {
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--text-secondary);
+}
+
+.exercise-benefits i {
+    color: var(--primary-color);
+}
+
+.btn-primary.start-exercise {
+    width: 100%;
+    margin-top: 1rem;
+    padding: 1rem;
+    font-size: 1.1rem;
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    z-index: 1;
+}
+
+.btn-primary.start-exercise:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(255, 105, 180, 0.2);
+}
+
+.breathing-exercises-section {
+    background: linear-gradient(145deg, #fff, #f8f8ff);
+    border-radius: 20px;
+    padding: 2rem;
+    margin: 1.5rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+.exercise-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.exercise-card {
+    background: white;
+    border-radius: 15px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.exercise-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+.exercise-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.difficulty {
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+.difficulty.easy { background: rgba(52, 199, 89, 0.1); color: #34C759; }
+.difficulty.medium { background: rgba(255, 149, 0, 0.1); color: #FF9500; }
+.difficulty.hard { background: rgba(255, 59, 48, 0.1); color: #FF3B30; }
+
+.breathing-interface {
+    background: white;
+    border-radius: 20px;
+    padding: 2rem;
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.breathing-circle {
+    width: 300px;
+    height: 300px;
+    margin: 2rem auto;
+    position: relative;
+    border-radius: 50%;
+    background: radial-gradient(circle at center, rgba(255,105,180,0.1) 0%, transparent 70%);
+    animation: glow 2s infinite alternate;
+}
+
+.circle-animation {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border: 3px solid var(--primary-color);
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.phase-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    font-weight: 500;
+}
+
+.timer {
+    position: absolute;
+    bottom: -2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 1.2rem;
+    color: var(--text-secondary);
+}
+
+.guidance-text {
+    text-align: center;
+    margin: 2rem 0;
+}
+
+.instruction {
+    font-size: 1.2rem;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+}
+
+.feedback {
+    color: var(--text-secondary);
+}
+
+.controls {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin: 2rem 0;
+}
+
+.metrics {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.metric-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 15px;
+    text-align: center;
+}
+
+@keyframes glow {
+    from { box-shadow: 0 0 20px rgba(255,105,180,0.2); }
+    to { box-shadow: 0 0 40px rgba(255,105,180,0.4); }
+}
+
+.breath-phase {
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: var(--primary-color);
+}
+
+.countdown {
+    position: absolute;
+    bottom: -2rem;
+    width: 100%;
+    text-align: center;
+    font-size: 1.2rem;
+    color: var(--text-secondary);
+}
+
+.exercise-controls {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+.exercise-controls button {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: none;
+    background: var(--gradient-primary);
+    color: white;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.exercise-controls button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+@keyframes expand {
+    from { transform: scale(1); }
+    to { transform: scale(1.2); }
+}
+
+@keyframes contract {
+    from { transform: scale(1.2); }
+    to { transform: scale(1); }
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); opacity: 0.5; }
+    50% { transform: scale(1.2); opacity: 1; }
+}
+
+@keyframes pulseGlow {
+    0%, 100% { box-shadow: 0 0 30px rgba(255, 105, 180, 0.2); }
+    50% { box-shadow: 0 0 50px rgba(255, 105, 180, 0.4); }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .exercise-cards {
+        grid-template-columns: 1fr;
+    }
+
+    .breathing-circle {
+        width: 150px;
+        height: 150px;
+    }
+}
+
+.breathing-exercises-content {
+    padding: 2rem;
+}
+
+.exercise-history {
+    margin-top: 3rem;
+    background: white;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.history-list {
+    margin-top: 1.5rem;
+}
+
+.exercise-stats {
+    margin-top: 3rem;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.stat-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.stat-card i {
+    font-size: 2rem;
+    color: var(--primary-color);
+    background: rgba(255, 105, 180, 0.1);
+    padding: 1rem;
+    border-radius: 12px;
+}
+
+.stat-info h3 {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    margin-bottom: 0.5rem;
+}
+
+.stat-info .stat-value {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.visualization-area {
+    position: relative;
+    height: 400px;
+    background: linear-gradient(145deg, #ffffff, #f8f8ff);
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.guidance-text {
+    position: absolute;
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    text-align: center;
+    width: 100%;
+    pointer-events: none;
+}
+
+.real-time-feedback {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 15px;
+    margin-top: 1.5rem;
+}
+
+.metrics-display {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.metric {
+    background: var(--background-light);
+    padding: 1rem;
+    border-radius: 10px;
+}
+
+.progress-bar {
+    height: 8px;
+    background: var(--background-dark);
+    border-radius: 4px;
+    overflow: hidden;
+    margin-top: 0.5rem;
+}
+
+.progress {
+    height: 100%;
+    background: var(--gradient-primary);
+    transition: width 0.3s ease;
+}
+
+.welcome-message {
+    text-align: center;
+    padding: 3rem;
+    background: linear-gradient(145deg, #ffffff, #f8f8ff);
+    border-radius: 20px;
+    margin: 2rem 0;
+}
+
+/* Add these new styles */
+.breathing-visualization {
+    position: relative;
+    min-height: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+}
+
+.exercise-progress {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.progress-ring {
+    position: relative;
+    width: 60px;
+    height: 60px;
+}
+
+.progress-ring-circle {
+    fill: transparent;
+    stroke: var(--primary-color);
+    stroke-width: 4;
+    stroke-linecap: round;
+    transform: rotate(-90deg);
+    transform-origin: center;
+    transition: stroke-dashoffset 0.3s;
+}
+
+.session-streak {
+    font-size: 1.2rem;
+    color: var(--primary-color);
+    font-weight: 500;
+}
+
+.breath-metrics {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    width: 100%;
+    max-width: 600px;
+    margin-top: 2rem;
+}
+
+.metric {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.metric .label {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+
+.metric .value {
+    font-size: 2rem;
+    font-weight: 600;
+    color: var(--primary-color);
+    margin: 0.5rem 0;
+}
+
+.achievements-panel {
+    margin-top: 3rem;
+    padding: 2rem;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.achievements-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.achievement {
+    padding: 1rem;
+    text-align: center;
+    border-radius: 12px;
+    background: var(--background-light);
+    opacity: 0.7;
+    transition: all 0.3s ease;
+}
+
+.achievement[data-achieved="true"] {
+    opacity: 1;
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+    color: white;
+}
+
+.achievement i {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+/* Achievement Modal Styles */
+.achievement-modal .modal-content {
+    text-align: center;
+    padding: 3rem;
+}
+
+.celebration-animation {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    animation: celebrate 1s ease infinite;
+}
+
+@keyframes celebrate {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+}
+
+/* Add these new styles for AI features */
+.ai-guidance {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 1rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    max-width: 300px;
+    z-index: 100;
+}
+
+.ai-status {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+
+.ai-status .status-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #4CAF50;
+    animation: pulse 2s infinite;
+}
+
+.breathing-tips {
+    margin-top: 1rem;
+}
+
+.tip {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem;
+    background: rgba(255, 105, 180, 0.05);
+    border-radius: 8px;
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+}
+
+.tip i {
+    color: var(--primary-color);
+}
+
+/* Add this to ensure animations work */
+@keyframes pulse {
+    0% { transform: scale(1); opacity: 0.7; }
+    50% { transform: scale(1.2); opacity: 1; }
+    100% { transform: scale(1); opacity: 0.7; }
+}

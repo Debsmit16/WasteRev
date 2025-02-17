@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Medicine - WasteRev</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="order-medicine.css">
+    <link rel="stylesheet" href="medicines/medicine-store.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Copy the sidebar from dashboard.html -->
+        <aside class="sidebar">
+            <!-- ... existing sidebar code ... -->
+        </aside>
+
+        <main class="main-content">
+            <header class="top-nav">
+                <div class="nav-left">
+                    <button class="menu-toggle">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    <h1>Order Medicine</h1>
+                </div>
+                <div class="nav-right">
+                    <div class="cart-icon">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-badge">0</span>
+                    </div>
+                </div>
+            </header>
+
+            <div class="return-nav">
+                <a href="dashboard.html" class="return-button">
+                    <i class="fas fa-arrow-left"></i> Return to Dashboard
+                </a>
+            </div>
+
+            <div class="medicine-shop">
+                <!-- Enhanced Search and Filter Section -->
+                <div class="shop-header">
+                    <div class="search-section">
+                        <div class="search-box">
+                            <i class="fas fa-search"></i>
+                            <input type="text" placeholder="Search medicines by name, category, or symptoms...">
+                        </div>
+                        <div class="advanced-filters">
+                            <button class="filter-btn">
+                                <i class="fas fa-filter"></i> Filters
+                            </button>
+                            <div class="price-range">
+                                <span>Price Range:</span>
+                                <input type="range" min="0" max="1000" value="500" id="priceRange">
+                                <span class="price-value">$500</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cart-summary">
+                        <div class="cart-icon">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span class="cart-badge">0</span>
+                        </div>
+                        <div class="cart-total">Total: $0.00</div>
+                    </div>
+                </div>
+
+                <!-- Category Navigation -->
+                <nav class="category-nav">
+                    <button class="active" data-category="all">All Medicines</button>
+                    <button data-category="prescription">Prescription</button>
+                    <button data-category="otc">Over the Counter</button>
+                    <button data-category="supplements">Supplements</button>
+                    <button data-category="equipment">Medical Equipment</button>
+                </nav>
+
+                <!-- Medicine Grid Container -->
+                <div class="medicines-container">
+                    <!-- Filters Sidebar -->
+                    <aside class="filters-sidebar">
+                        <div class="filter-section">
+                            <h3>Categories</h3>
+                            <div class="filter-options">
+                                <label><input type="checkbox" value="respiratory"> Respiratory</label>
+                                <label><input type="checkbox" value="cardiac"> Cardiac</label>
+                                <label><input type="checkbox" value="diabetes"> Diabetes</label>
+                                <label><input type="checkbox" value="painRelief"> Pain Relief</label>
+                            </div>
+                        </div>
+
+                        <div class="filter-section">
+                            <h3>Brands</h3>
+                            <div class="filter-options">
+                                <!-- Will be populated dynamically -->
+                            </div>
+                        </div>
+
+                        <div class="filter-section">
+                            <h3>Sort By</h3>
+                            <select id="sortOptions">
+                                <option value="popularity">Popularity</option>
+                                <option value="priceLow">Price: Low to High</option>
+                                <option value="priceHigh">Price: High to Low</option>
+                                <option value="name">Name</option>
+                            </select>
+                        </div>
+                    </aside>
+
+                    <!-- Medicine Grid -->
+                    <div class="medicines-grid">
+                        <!-- Will be populated dynamically -->
+                    </div>
+                </div>
+
+                <!-- Pagination -->
+                <div class="pagination">
+                    <button class="prev-page"><i class="fas fa-chevron-left"></i></button>
+                    <div class="page-numbers">
+                        <button class="active">1</button>
+                        <button>2</button>
+                        <button>3</button>
+                    </div>
+                    <button class="next-page"><i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Cart Modal -->
+    <div class="modal cart-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2><i class="fas fa-shopping-cart"></i> Your Cart</h2>
+                <span class="close-modal">&times;</span>
+            </div>
+            <div class="cart-items">
+                <!-- Will be populated dynamically -->
+            </div>
+            <div class="cart-summary">
+                <div class="summary-row">
+                    <span>Subtotal:</span>
+                    <span class="subtotal">$0.00</span>
+                </div>
+                <div class="summary-row">
+                    <span>Delivery Fee:</span>
+                    <span class="delivery-fee">$5.00</span>
+                </div>
+                <div class="summary-row total">
+                    <span>Total:</span>
+                    <span class="total-amount">$0.00</span>
+                </div>
+                <button class="checkout-btn" disabled>
+                    Proceed to Checkout
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Prescription Upload Modal -->
+    <div class="modal prescription-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Upload Prescription</h2>
+                <span class="close-modal">&times;</span>
+            </div>
+            <div class="prescription-upload">
+                <div class="upload-area">
+                    <i class="fas fa-file-medical"></i>
+                    <p>Drag and drop your prescription here or</p>
+                    <button class="upload-btn">Choose File</button>
+                    <input type="file" hidden accept="image/*,.pdf">
+                </div>
+                <div class="upload-preview">
+                    <!-- Preview will be shown here -->
+                </div>
+            </div>
+            <div class="modal-actions">
+                <button class="submit-prescription">Submit Prescription</button>
+                <button class="cancel-upload">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="medicines/medicine-store.js"></script>
+</body>
+</html>

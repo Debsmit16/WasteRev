@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Breathing Exercises - WasteRev</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="breathing-exercises/breathing-exercises.css">
+
+    <!-- Load scripts in the correct order -->
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest"></script>
+    <script>
+        console.log('Debug mode enabled');
+        window.DEBUG = true;
+    </script>
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <a href="../../index.html" class="logo">
+                    <img src="../../logo.png" alt="WasteRev Logo">
+                    <span>WasteRev</span>
+                </a>
+            </div>
+            <nav class="sidebar-nav">
+                <!-- Copy your sidebar navigation here -->
+            </nav>
+        </aside>
+
+        <main class="main-content">
+            <header class="top-nav">
+                <div class="nav-left">
+                    <button class="menu-toggle">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    <h1>Breathing Exercises</h1>
+                </div>
+                <div class="nav-right">
+                    <div class="user-profile">
+                        <img src="https://i.pravatar.cc/150?img=12" alt="Patient Avatar">
+                        <span>John Doe</span>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Add this back button section right after the header -->
+            <div class="back-navigation">
+                <a href="dashboard.html" class="back-button">
+                    <i class="fas fa-arrow-left"></i>
+                    <span>Back to Dashboard</span>
+                </a>
+            </div>
+
+            <!-- Main Content Area -->
+            <div class="breathing-exercises-content">
+                <!-- Exercise Cards -->
+                <div class="exercise-cards">
+                    <div class="exercise-card" data-exercise="relaxation">
+                        <div class="exercise-header">
+                            <h3>4-7-8 Relaxation Breath</h3>
+                            <span class="difficulty easy">Easy</span>
+                        </div>
+                        <p>A simple relaxing breathing pattern to reduce anxiety</p>
+                        <div class="exercise-benefits">
+                            <ul>
+                                <li><i class="fas fa-check"></i> Reduces stress and anxiety</li>
+                                <li><i class="fas fa-check"></i> Improves sleep quality</li>
+                                <li><i class="fas fa-check"></i> Helps with relaxation</li>
+                            </ul>
+                        </div>
+                        <button class="btn-primary start-exercise">Start Exercise</button>
+                    </div>
+
+                    <div class="exercise-card" data-exercise="pursedLips">
+                        <div class="exercise-header">
+                            <h3>Pursed Lip Breathing</h3>
+                            <span class="difficulty easy">Easy</span>
+                        </div>
+                        <p>Helps control breathlessness and improve ventilation</p>
+                        <div class="exercise-benefits">
+                            <ul>
+                                <li><i class="fas fa-check"></i> Controls breathlessness</li>
+                                <li><i class="fas fa-check"></i> Strengthens breathing muscles</li>
+                                <li><i class="fas fa-check"></i> Improves oxygen intake</li>
+                            </ul>
+                        </div>
+                        <button class="btn-primary start-exercise">Start Exercise</button>
+                    </div>
+
+                    <div class="exercise-card" data-exercise="diaphragmatic">
+                        <div class="exercise-header">
+                            <h3>Diaphragmatic Breathing</h3>
+                            <span class="difficulty medium">Medium</span>
+                        </div>
+                        <p>Strengthens the diaphragm and reduces oxygen demand</p>
+                        <div class="exercise-benefits">
+                            <ul>
+                                <li><i class="fas fa-check"></i> Strengthens diaphragm</li>
+                                <li><i class="fas fa-check"></i> Increases oxygen efficiency</li>
+                                <li><i class="fas fa-check"></i> Reduces stress</li>
+                            </ul>
+                        </div>
+                        <button class="btn-primary start-exercise">Start Exercise</button>
+                    </div>
+                </div>
+
+                <!-- Exercise Interface -->
+                <div class="breathing-interface" style="display: none;">
+                    <div class="exercise-header">
+                        <h2 class="exercise-title">Loading exercise...</h2>
+                        <div class="exercise-progress">
+                            <div class="progress-ring">
+                                <svg>
+                                    <circle class="progress-ring-circle" cx="30" cy="30" r="25"></circle>
+                                </svg>
+                                <span class="time-remaining">5:00</span>
+                            </div>
+                            <span class="session-streak">Session Streak: 3 🔥</span>
+                        </div>
+                    </div>
+
+                    <div class="breathing-visualization">
+                        <div class="breathing-circle">
+                            <div class="circle-animation"></div>
+                            <div class="breath-guidance">
+                                <span class="phase-text">Get Ready...</span>
+                                <span class="timer">3</span>
+                            </div>
+                        </div>
+                        <div class="breath-metrics">
+                            <div class="metric">
+                                <span class="label">Rhythm</span>
+                                <div class="value">95%</div>
+                                <div class="progress-bar">
+                                    <div class="progress" style="width: 95%"></div>
+                                </div>
+                            </div>
+                            <div class="metric">
+                                <span class="label">Depth</span>
+                                <div class="value">85%</div>
+                                <div class="progress-bar">
+                                    <div class="progress" style="width: 85%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="ai-feedback">
+                        <div class="feedback-message">
+                            <i class="fas fa-robot"></i>
+                            <span>Analyzing your breathing pattern...</span>
+                        </div>
+                        <div class="breathing-tips"></div>
+                    </div>
+
+                    <div class="exercise-controls">
+                        <button class="btn-previous" disabled>
+                            <i class="fas fa-step-backward"></i>
+                        </button>
+                        <button class="btn-play">
+                            <i class="fas fa-play"></i>
+                        </button>
+                        <button class="btn-next">
+                            <i class="fas fa-step-forward"></i>
+                        </button>
+                    </div>
+
+                    <div class="achievements-panel">
+                        <h3>Today's Achievements</h3>
+                        <div class="achievements-grid">
+                            <div class="achievement" data-achieved="true">
+                                <i class="fas fa-star"></i>
+                                <span>First Session</span>
+                            </div>
+                            <div class="achievement" data-achieved="false">
+                                <i class="fas fa-medal"></i>
+                                <span>Perfect Rhythm</span>
+                            </div>
+                            <div class="achievement" data-achieved="false">
+                                <i class="fas fa-trophy"></i>
+                                <span>5-Day Streak</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Add new modal for achievements -->
+    <div class="modal achievement-modal">
+        <div class="modal-content">
+            <div class="achievement-celebration">
+                <div class="celebration-animation">🎉</div>
+                <h2>Achievement Unlocked!</h2>
+                <p class="achievement-name">Perfect Breathing Rhythm</p>
+                <p class="achievement-points">+50 points</p>
+                <button class="btn-close">Continue</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add keyboard shortcuts help -->
+    <div class="keyboard-shortcuts">
+        <div>Shortcuts:</div>
+        <div><kbd>Space</kbd> Play/Pause</div>
+        <div><kbd>N</kbd> Next Exercise</div>
+        <div><kbd>P</kbd> Previous Exercise</div>
+        <div><kbd>E</kbd> End Exercise</div>
+    </div>
+
+    <!-- Add this script right before the closing </body> tag -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            console.log('Page loaded');
+
+            // Simple exercise manager
+            const exerciseManager = {
+                startExercise: function(type) {
+                    console.log('Starting exercise:', type);
+                    
+                    // Hide cards
+                    document.querySelector('.exercise-cards').style.display = 'none';
+                    
+                    // Show interface
+                    const interface = document.querySelector('.breathing-interface');
+                    interface.style.display = 'block';
+                    
+                    // Set exercise title
+                    document.querySelector('.exercise-title').textContent = 
+                        type === 'relaxation' ? '4-7-8 Relaxation Breath' :
+                        type === 'pursedLips' ? 'Pursed Lip Breathing' :
+                        'Diaphragmatic Breathing';
+
+                    // Start animation
+                    const circle = document.querySelector('.circle-animation');
+                    circle.style.animation = 'pulse 4s infinite';
+                }
+            };
+
+            // Add click handlers to all exercise buttons
+            const startButtons = document.querySelectorAll('.start-exercise');
+            console.log('Found buttons:', startButtons.length);
+
+            startButtons.forEach(button => {
+                button.addEventListener('click', function(e) {
+                    console.log('Button clicked');
+                    const card = this.closest('.exercise-card');
+                    const exerciseType = card.dataset.exercise;
+                    exerciseManager.startExercise(exerciseType);
+                });
+            });
+        });
+    </script>
+</body>
+</html>

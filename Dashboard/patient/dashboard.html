@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient Dashboard - WasteRev</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="health-records/health-records.css">
+    <link rel="stylesheet" href="breathing-exercises/breathing-exercises.css">
+    <!-- Add Emergency CSS -->
+    <link rel="stylesheet" href="styles/emergency.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <a href="../../index.html" class="logo">
+                    <img src="../../logo.png" alt="WasteRev Logo">
+                    <span>WasteRev</span>
+                </a>
+            </div>
+            <nav class="sidebar-nav">
+                <ul>
+                    <li class="active">
+                        <a href="#dashboard"><i class="fas fa-home"></i> Dashboard</a>
+                    </li>
+                    <li>
+                        <a href="#appointments"><i class="fas fa-calendar-check"></i> Appointments</a>
+                    </li>
+                    <li>
+                        <a href="health-records.html"><i class="fas fa-file-medical"></i> Health Records</a>
+                    </li>
+                    <li>
+                        <a href="breathing-exercises.html"><i class="fas fa-wind"></i> Breathing Exercises</a>
+                    </li>
+                    <li>
+                        <a href="#genetic-testing"><i class="fas fa-dna"></i> Genetic Testing</a>
+                    </li>
+                    <li>
+                        <a href="#medications"><i class="fas fa-pills"></i> Medications</a>
+                    </li>
+                    <li>
+                        <a href="#messages"><i class="fas fa-envelope"></i> Messages</a>
+                    </li>
+                    <li>
+                        <a href="#settings"><i class="fas fa-cog"></i> Settings</a>
+                    </li>
+                    <li>
+                        <a href="order-medicine.html"><i class="fas fa-pills"></i> Order Medicine</a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="sidebar-footer">
+                <a href="#help"><i class="fas fa-question-circle"></i> Help Center</a>
+                <a href="login.html" class="logout-btn"><i class="fas fa-sign-out-alt"></i> Logout</a>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Top Navigation -->
+            <header class="top-nav">
+                <div class="nav-left">
+                    <button class="menu-toggle">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    <h1>Dashboard</h1>
+                </div>
+                <div class="nav-right">
+                    <div class="search-bar">
+                        <i class="fas fa-search"></i>
+                        <input type="text" placeholder="Search...">
+                    </div>
+                    <div class="notifications">
+                        <i class="fas fa-bell"></i>
+                        <span class="notification-badge">3</span>
+                    </div>
+                    <div class="user-profile">
+                        <img src="https://i.pravatar.cc/150?img=12" alt="Patient Avatar">
+                        <span>John Doe</span>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Add this right after your header section -->
+            <div class="sos-button-container">
+                <button id="sosButton" class="sos-button">
+                    <div class="sos-ripple"></div>
+                    <i class="fas fa-ambulance"></i>
+                    <span>SOS</span>
+                </button>
+            </div>
+
+            <!-- Add this right after the SOS button -->
+            <div class="emergency-shortcut-hint">
+                Press Space + E for Emergency
+            </div>
+
+            <!-- Dashboard Content -->
+            <div class="dashboard-content">
+                <!-- Health Overview Section -->
+                <section class="health-overview">
+                    <div class="card-grid">
+                        <div class="health-card" data-type="respiratory">
+                            <div class="card-icon">
+                                <i class="fas fa-lungs"></i>
+                            </div>
+                            <div class="card-info">
+                                <h3>Respiratory Rate</h3>
+                                <p class="value">--</p>
+                                <span class="trend stable">
+                                    <i class="fas fa-minus"></i> Loading...
+                                </span>
+                            </div>
+                        </div>
+                        <div class="health-card" data-type="heart">
+                            <div class="card-icon heart">
+                                <i class="fas fa-heartbeat"></i>
+                            </div>
+                            <div class="card-info">
+                                <h3>Heart Rate</h3>
+                                <p class="value">--</p>
+                                <span class="trend">
+                                    <i class="fas fa-minus"></i> Loading...
+                                </span>
+                            </div>
+                        </div>
+                        <div class="health-card" data-type="oxygen">
+                            <div class="card-icon oxygen">
+                                <i class="fas fa-wind"></i>
+                            </div>
+                            <div class="card-info">
+                                <h3>Oxygen Level</h3>
+                                <p class="value">--</p>
+                                <span class="trend">
+                                    <i class="fas fa-minus"></i> Loading...
+                                </span>
+                            </div>
+                        </div>
+                        <div class="health-card" data-type="temperature">
+                            <div class="card-icon temperature">
+                                <i class="fas fa-thermometer-half"></i>
+                            </div>
+                            <div class="card-info">
+                                <h3>Temperature</h3>
+                                <p class="value">--</p>
+                                <span class="trend">
+                                    <i class="fas fa-minus"></i> Loading...
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="generate-report-btn">
+                        <i class="fas fa-file-medical"></i>
+                        Generate Health Report
+                    </button>
+                </section>
+
+                <!-- Air Quality Monitor Section -->
+                <section class="air-quality-section">
+                    <h2><i class="fas fa-wind"></i> Air Quality Monitor</h2>
+                    <div class="aqi-card">
+                        <div class="aqi-header">
+                            <div class="aqi-location">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span class="location-text">Loading location...</span>
+                            </div>
+                            <div class="aqi-refresh">
+                                <button class="refresh-btn" title="Refresh AQI data">
+                                    <i class="fas fa-sync-alt"></i>
+                                </button>
+                                <span class="last-updated">Updating...</span>
+                            </div>
+                        </div>
+                        <div class="aqi-main">
+                            <div class="aqi-value">
+                                <span class="value">--</span>
+                                <span class="label">US AQI</span>
+                            </div>
+                            <div class="aqi-info">
+                                <span class="status">--</span>
+                                <p class="description">Fetching air quality data...</p>
+                            </div>
+                        </div>
+                        <div class="aqi-details">
+                            <div class="pollutant">
+                                <span class="name">PM2.5</span>
+                                <span class="value">--</span>
+                                <span class="unit">µg/m³</span>
+                            </div>
+                            <div class="pollutant">
+                                <span class="name">PM10</span>
+                                <span class="value">--</span>
+                                <span class="unit">µg/m³</span>
+                            </div>
+                            <div class="pollutant">
+                                <span class="name">O₃</span>
+                                <span class="value">--</span>
+                                <span class="unit">ppm</span>
+                            </div>
+                            <div class="pollutant">
+                                <span class="name">NO₂</span>
+                                <span class="value">--</span>
+                                <span class="unit">ppm</span>
+                            </div>
+                        </div>
+                        <div class="aqi-recommendations">
+                            <h3>Health Recommendations</h3>
+                            <ul class="recommendation-list">
+                                <li class="loading">Loading recommendations...</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Symptom Logger Section -->
+                <section class="symptom-logger-section">
+                    <h2>Symptom Logger</h2>
+                    <div class="symptom-form">
+                        <button class="log-symptom-btn" id="openSymptomLogger">
+                            <i class="fas fa-plus"></i> Log New Symptoms
+                        </button>
+                    </div>
+                    <div class="recent-symptoms">
+                        <h3>Recent Symptoms</h3>
+                        <div class="symptoms-timeline">
+                            <!-- Symptoms will be added here dynamically -->
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Online Consultation Section -->
+                <section class="consultation-section">
+                    <div class="section-header">
+                        <h2>
+                            <div class="section-icon">
+                                <i class="fas fa-video"></i>
+                                <i class="fas fa-stethoscope secondary-icon"></i>
+                            </div>
+                            Online Consultation
+                        </h2>
+                    </div>
+
+                    <div class="consultation-grid">
+                        <!-- Quick Book Panel -->
+                        <div class="quick-book-panel">
+                            <button class="book-consultation-btn" id="openConsultationModal">
+                                <div class="btn-content">
+                                    <i class="fas fa-plus-circle"></i>
+                                    <span class="btn-text">Book New Consultation</span>
+                                    <span class="btn-subtext">Available doctors: 8</span>
+                                </div>
+                            </button>
+                            
+                            <div class="quick-slots-panel">
+                                <h3>Today's Available Slots</h3>
+                                <div class="slots-grid">
+                                    <div class="time-slot available">
+                                        <span class="slot-time">09:00</span>
+                                        <span class="slot-status">Available</span>
+                                    </div>
+                                    <div class="time-slot available">
+                                        <span class="slot-time">10:30</span>
+                                        <span class="slot-status">Available</span>
+                                    </div>
+                                    <div class="time-slot booked">
+                                        <span class="slot-time">11:00</span>
+                                        <span class="slot-status">Booked</span>
+                                    </div>
+                                    <!-- More slots... -->
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Upcoming Consultations Panel -->
+                        <div class="upcoming-consultations-panel">
+                            <h3>Upcoming Online Consultations</h3>
+                            <div class="consultation-list">
+                                <!-- Consultations will be added here dynamically -->
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Upcoming Appointments -->
+                <section class="appointments-section">
+                    <div class="section-header">
+                        <h2>
+                            <div class="section-icon">
+                                <i class="fas fa-calendar-check"></i>
+                                <i class="fas fa-plus secondary-icon"></i>
+                            </div>
+                            Upcoming Appointments
+                        </h2>
+                    </div>
+                    <div class="appointments-list">
+                        <button class="add-appointment-btn modern">
+                            <div class="btn-content">
+                                <div class="icon-wrapper">
+                                    <i class="fas fa-plus-circle primary-icon"></i>
+                                    <i class="fas fa-calendar secondary-icon"></i>
+                                </div>
+                                <div class="btn-text">
+                                    <span class="primary-text">Schedule New Appointment</span>
+                                    <span class="secondary-text">Available slots today: 8</span>
+                                </div>
+                            </div>
+                        </button>
+                    </div>
+                </section>
+
+                <!-- Medications Section -->
+                <section class="medications-section">
+                    <div class="section-header">
+                        <h2>
+                            <div class="section-icon">
+                                <i class="fas fa-pills"></i>
+                                <i class="fas fa-clock secondary-icon"></i>
+                            </div>
+                            Medications Schedule
+                        </h2>
+                    </div>
+                    <div class="medications-list">
+                        <div class="medication-card">
+                            <div class="medication-icon">
+                                <i class="fas fa-lungs"></i>
+                            </div>
+                            <div class="medication-info">
+                                <div class="med-header">
+                                    <h3>Ventolin Inhaler</h3>
+                                    <span class="med-type">Respiratory</span>
+                                </div>
+                                <div class="med-details">
+                                    <span class="dosage">
+                                        <i class="fas fa-prescription"></i>
+                                        2 puffs every 6 hours
+                                    </span>
+                                    <div class="next-dose">
+                                        <div class="time-indicator">
+                                            <div class="progress-ring">
+                                                <svg width="36" height="36">
+                                                    <circle class="progress-ring-circle" cx="18" cy="18" r="16"></circle>
+                                                </svg>
+                                                <span class="time-left">2h</span>
+                                            </div>
+                                        </div>
+                                        <span class="dose-text">Next dose in 2 hours</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="medication-actions">
+                                <button class="btn-take">
+                                    <i class="fas fa-check"></i>
+                                    <span>Take Now</span>
+                                </button>
+                                <button class="btn-skip">
+                                    <i class="fas fa-forward"></i>
+                                    <span>Skip</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="add-medication-btn">
+                        <i class="fas fa-plus"></i>
+                        Add New Medication
+                    </button>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <!-- Symptom Logger Modal -->
+    <div class="modal" id="symptomModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Log Your Symptoms</h2>
+                <span class="close-modal">&times;</span>
+            </div>
+            <form id="symptomForm">
+                <div class="form-group">
+                    <label for="symptomType">Symptom Type</label>
+                    <select id="symptomType" required>
+                        <option value="">Select symptom</option>
+                        <option value="cough">Cough</option>
+                        <option value="shortness_of_breath">Shortness of Breath</option>
+                        <option value="chest_pain">Chest Pain</option>
+                        <option value="wheezing">Wheezing</option>
+                        <option value="fatigue">Fatigue</option>
+                        <option value="fever">Fever</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="severity">Severity</label>
+                    <div class="severity-slider">
+                        <input type="range" id="severity" min="1" max="10" value="5">
+                        <span class="severity-value">5</span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="duration">Duration</label>
+                    <select id="duration" required>
+                        <option value="">Select duration</option>
+                        <option value="less_than_hour">Less than an hour</option>
+                        <option value="few_hours">Few hours</option>
+                        <option value="one_day">One day</option>
+                        <option value="several_days">Several days</option>
+                        <option value="week_plus">More than a week</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="notes">Additional Notes</label>
+                    <textarea id="notes" rows="3" placeholder="Describe your symptoms in detail..."></textarea>
+                </div>
+                <div class="form-actions">
+                    <button type="submit" class="btn-primary">Log Symptom</button>
+                    <button type="button" class="btn-secondary" id="cancelSymptom">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Consultation Booking Modal -->
+    <div class="modal" id="consultationModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Book Online Consultation</h2>
+                <span class="close-modal">&times;</span>
+            </div>
+            <form id="consultationForm">
+                <div class="form-group">
+                    <label for="specialization">Specialization</label>
+                    <select id="specialization" required>
+                        <option value="">Select specialization</option>
+                        <option value="general">General Physician</option>
+                        <option value="pulmonologist">Pulmonologist</option>
+                        <option value="cardiologist">Cardiologist</option>
+                        <option value="neurologist">Neurologist</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="doctor">Select Doctor</label>
+                    <select id="doctor" required disabled>
+                        <option value="">First select specialization</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label>Select Date</label>
+                    <div class="date-picker">
+                        <input type="date" id="consultationDate" required min="">
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label>Available Time Slots</label>
+                    <div class="time-slots">
+                        <!-- Time slots will be populated dynamically -->
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="consultationNotes">Consultation Notes</label>
+                    <textarea id="consultationNotes" rows="3" 
+                        placeholder="Briefly describe your symptoms or reason for consultation..."></textarea>
+                </div>
+                <div class="consultation-type">
+                    <label>
+                        <input type="radio" name="type" value="video" checked>
+                        <i class="fas fa-video"></i> Video Call
+                    </label>
+                    <label>
+                        <input type="radio" name="type" value="audio">
+                        <i class="fas fa-phone"></i> Audio Call
+                    </label>
+                    <label>
+                        <input type="radio" name="type" value="chat">
+                        <i class="fas fa-comments"></i> Chat
+                    </label>
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit" class="btn-primary">Confirm Booking</button>
+                    <button type="button" class="btn-secondary" id="cancelConsultation">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Health Report Modal -->
+    <div class="modal" id="healthReportModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Health Report</h2>
+                <span class="close-modal">&times;</span>
+            </div>
+            <div class="report-content">
+                <!-- Report content will be dynamically inserted here -->
+            </div>
+            <div class="report-actions">
+                <button class="btn-primary" onclick="window.print()">
+                    <i class="fas fa-print"></i> Print Report
+                </button>
+                <button class="btn-secondary close-modal">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add this before closing body tag -->
+    <div class="emergency-modal" id="emergencyModal">
+        <div class="emergency-content">
+            <h2>⚠️ Emergency Alert</h2>
+            <p>Are you having a medical emergency?</p>
+            <div class="emergency-actions">
+                <button id="confirmEmergency" class="confirm-emergency">
+                    Yes, Call Emergency Services
+                </button>
+                <button id="cancelEmergency" class="cancel-emergency">
+                    Cancel
+                </button>
+            </div>
+            <div class="emergency-info">
+                <p>Your location will be shared with emergency services.</p>
+                <div class="nearest-hospital"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="aqi-monitor.js"></script>
+    <script src="dashboard.js"></script>
+    <script src="ai-health-advisor.js"></script>
+    <script type="module" src="health-report.js"></script>
+    <script src="health-records/health-records.js"></script>
+    
+    <!-- Add Emergency Service scripts -->
+    <script src="services/emergency-service.js"></script>
+    <script>
+        // Initialize emergency service
+        document.addEventListener('DOMContentLoaded', () => {
+            const emergencyService = new EmergencyService();
+            window.emergencyService = emergencyService; // Make globally available
+            
+            // Initialize SOS button
+            const sosButton = document.getElementById('sosButton');
+            const emergencyModal = document.getElementById('emergencyModal');
+            
+            if (sosButton && emergencyModal) {
+                sosButton.addEventListener('click', () => {
+                    emergencyModal.classList.add('active');
+                });
+            }
+        });
+    </script>
+</body>
+</html>
